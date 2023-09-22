@@ -3,9 +3,10 @@ authors     = ["9FS <pray4spam@googlemail.com>"]
 description = ""
 license     = "MIT"
 name        = "KFSfstr"
+packages    = [{ include = "KFSfstr" }]
 readme      = "readme.md"
 repository  = "https://github.com/9-FS/2023-09-20-KFSfstr-Library"
-version     = "1.0.1"
+version     = "1.0.2"
 
 [tool.poetry.dependencies]
 KFSmath  = "^1.0.0"
