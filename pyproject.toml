@@ -5,7 +5,7 @@ license     = "MIT"
 name        = "KFSfstr"
 packages    = [{ include = "KFSfstr" }]
 readme      = "readme.md"
-repository  = "https://github.com/9-FS/2023-09-20-KFSfstr-Library"
+repository  = "https://github.com/9-FS/2023-09-20-KFSfstr"
 version     = "1.0.2"
 
 [tool.poetry.dependencies]

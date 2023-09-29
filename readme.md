@@ -1,11 +1,11 @@
 ---
-Topic: "KFSfstr Library"
+Topic: "KFSfstr"
 Author: "구FS"
 ---
 <link href="./doc_templates/md_style.css" rel="stylesheet"></link>
 <body>
 
-# <p style="text-align: center;">KFSfstr Library</p>
+# <p style="text-align: center;">KFSfstr</p>
 <br>
 <br>
 
