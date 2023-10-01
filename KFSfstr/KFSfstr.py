@@ -6,6 +6,31 @@ import sys
 from KFSmath import KFSmath
 
 
+def full_class_name(obj: object) -> str:
+    """
+    Returns the full class name of obj, including module.
+
+    Arguments:
+    - obj: object to analyse
+
+    Returns:
+    - full_class_name: full class name of obj, including module
+    """
+
+    full_class_name: str="" # result
+    module_name: str
+
+
+    module_name=obj.__class__.__module__
+    if module_name!=str.__class__.__module__:   # if not in module "builtins":
+        full_class_name+=f"{module_name}."      # prepend module name
+    
+    full_class_name+=obj.__class__.__name__ # class name
+
+    return full_class_name
+# source: https://stackoverflow.com/questions/18176602/how-to-get-the-name-of-an-exception-that-was-caught-in-python
+
+
 def notation_abs(x: float, precision: int, round_static: bool=False, trailing_zeros: bool=True, width: int=0) -> str:   # type:ignore
     """
     Formats rounded number as string, no changing of magnitude for decimal prefixes (notation absolute).
