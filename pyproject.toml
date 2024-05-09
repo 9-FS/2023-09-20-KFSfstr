@@ -6,7 +6,7 @@ name        = "KFSfstr"
 packages    = [{ include = "KFSfstr" }]
 readme      = "readme.md"
 repository  = "https://github.com/9-FS/2023-09-20-KFSfstr"
-version     = "1.1.1"
+version     = "1.1.2"
 
 [tool.poetry.dependencies]
 colorama = "^0.4.0"

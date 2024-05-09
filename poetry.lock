@@ -75,13 +75,13 @@ files = [
 
 [[package]]
 name = "kfsmath"
-version = "1.0.1"
+version = "1.0.2"
 description = ""
 optional = false
-python-versions = ">=3.11.0,<4.0.0"
+python-versions = "<4.0.0,>=3.12.0"
 files = [
-    {file = "kfsmath-1.0.1-py3-none-any.whl", hash = "sha256:c5cccef537e10293cd1ac6f0e952fb31e97f5d60d133e43a6a34a2f3122457e8"},
-    {file = "kfsmath-1.0.1.tar.gz", hash = "sha256:bd28030eeffcad0880ea7955ca7e4fb94f23496714a4f54a75867268eba25e55"},
+    {file = "kfsmath-1.0.2-py3-none-any.whl", hash = "sha256:03f4fefb420e014faa822e6af5a231023616a8d3d863138fd0f2b8bcbee68b4e"},
+    {file = "kfsmath-1.0.2.tar.gz", hash = "sha256:f2e74102132500c6738c918d0029cd3810c3473cec1ebaebe2df082a66fcde7a"},
 ]
 
 [[package]]
