@@ -3,7 +3,6 @@ import colorama
 import inspect
 import math
 import sys
-from KFSmath import KFSmath
 
 
 def full_class_name(obj: object) -> str:
@@ -24,7 +23,7 @@ def full_class_name(obj: object) -> str:
     module_name=obj.__class__.__module__
     if module_name!=str.__class__.__module__:   # if not in module "builtins":
         full_class_name+=f"{module_name}."      # prepend module name
-    
+
     full_class_name+=obj.__class__.__name__ # class name
 
     return full_class_name
@@ -49,17 +48,17 @@ def notation_abs(x: float, precision: int, round_static: bool=False, trailing_ze
 
     x: float|str
 
-    
+
     if round_static==False:
-        x=KFSmath.round_sig(x, precision)           # round to signifcant number
+        x=round_sig(x, precision)                   # round to signifcant number
     else:
         x=round(x, precision)                       # round to decimal place static
-        
+
     if x!=0:                                        # determine magnitude after rounding in case rounding changes magnitude
         magnitude=math.floor(math.log10(abs(x)))    # x magnitude floored
     else:
         magnitude=0                                 # for number 0 magnitude 0, practical for decimal prefix
-    
+
     if round_static==False:
         dec_places=magnitude*-1+precision-1         # decimal places required
     else:
@@ -69,12 +68,11 @@ def notation_abs(x: float, precision: int, round_static: bool=False, trailing_ze
 
 
     x=f"{x:0{width},.{dec_places}f}".replace(".", "%TEMP%").replace(",", ".").replace("%TEMP%", ",")    # int to str, comma as decimal separator
-    
+
     if trailing_zeros==False and "," in x:  # if trailing zeros undesired and decimal places existing:
         x=x.rstrip("0")                     # remove trailing zeros
         if x[-1]==",":                      # if because of that last character comma:
             x=x[:-1]                        # remove comma
-
 
     return x
 
@@ -101,17 +99,17 @@ def notation_tech(x: float, precision: int, round_static: bool=False, trailing_z
 
     x: float|str
 
-    
+
     if round_static==False:
-        x=KFSmath.round_sig(x, precision)           # round to signifcant number
+        x=round_sig(x, precision)                   # round to signifcant number
     else:
         x=round(x, precision)                       # round to decimal place static
-        
+
     if x!=0:                                        # determine magnitude after rounding in case rounding changes magnitude
         magnitude=math.floor(math.log10(abs(x)))    # x magnitude floored
     else:
         magnitude=0                                 # for number 0 magnitude 0, practical for decimal prefix
-    
+
     if round_static==False:
         dec_places=magnitude%3*-1+precision-1       # decimal places required
     else:
@@ -120,12 +118,12 @@ def notation_tech(x: float, precision: int, round_static: bool=False, trailing_z
         dec_places=0
 
     x=f"{x/math.pow(10, magnitude-magnitude%3):0{width}.{dec_places}f}".replace(".", ",")   # int to str, to correct magnitude and number of decimal places, comma as decimal separator
-    
+
     if trailing_zeros==False and "," in x:  # if trailing zeros undesired and decimal places existing:
         x=x.rstrip("0")                     # remove trailing zeros
         if x[-1]==",":                      # if because of that last character comma:
             x=x[:-1]                        # remove comma
-    
+
     if add_decimal_prefix==True:    # if decimal prefix desired: append
         if    30<=magnitude and magnitude< 33:
             x+="Q"
@@ -171,7 +169,6 @@ def notation_tech(x: float, precision: int, round_static: bool=False, trailing_z
             x+="q"
         else:
             raise ValueError(f"Error in {notation_tech.__name__}{inspect.signature(notation_tech)}: There are only decimal prefixes for magnitudes [-30; 33[ defined. There is no decimal prefix for given magnitude {magnitude}.")
-        
 
     return x
 
@@ -205,3 +202,27 @@ def rainbowify(s: str, rainbow_colours: list=[colorama.Fore.MAGENTA, colorama.Fo
     s_rainbowified+=colorama.Style.RESET_ALL            # reset colours
 
     return s_rainbowified
+
+
+def round_sig(x: float, significants: int) -> float:
+    """
+    Round x to significant number. If significants is smaller 1, always returns 0.
+
+    Arguments:
+    - x: number to round
+    - significants: number of significant digits to round to
+
+    Returns:
+    - x: rounded number
+    """
+
+    x=float(x)
+
+
+    if x==0:    # if x is 0: magnitude determination fails, but rounded number always 0
+        return x
+
+    magnitude=math.floor(math.log10(abs(x)))    # determine magnitude floored
+    x=round(x, -1*magnitude+significants-1)     # round #type:ignore
+
+    return x
