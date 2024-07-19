@@ -1,17 +1,18 @@
 #import "@preview/wrap-it:0.1.0": wrap-content  // https://github.com/ntjess/wrap-it/blob/main/docs/manual.pdf
-#import "./doc_templates/src/style.typ": set_style
 #import "./doc_templates/src/note.typ": *
+#import "./doc_templates/src/style.typ": set_style
 
 
 #show: doc => set_style(
-    topic: "KFSfstr",
+    topic: "kfsfstr",
     author: "구FS",
     language: "EN",
     doc
 )
+#set text(size: 3.5mm)
 
 
-#align(center, text(size: 8mm, weight: "bold")[KFSfstr])
+#align(center, text(size: 2em, weight: "bold")[kfsfstr])
 #line(length: 100%, stroke: 0.3mm)
 \
 \
@@ -30,4 +31,4 @@ For further documentation, read the provided docstrings or feel free to send me 
 = Installation
 == PyPI
 
-+ `pip install KFSfstr`
++ `pip install kfsfstr`
