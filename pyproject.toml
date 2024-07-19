@@ -2,11 +2,11 @@
 authors     = ["9FS <pray4spam@googlemail.com>"]
 description = ""
 license     = "MIT"
-name        = "KFSfstr"
-packages    = [{ include = "KFSfstr" }]
-readme      = "readme.md"
-repository  = "https://github.com/9-FS/2023-09-20-KFSfstr"
-version     = "1.2.0"
+name        = "kfsfstr"
+packages    = [{ include = "kfsfstr" }]
+readme      = "readme.typ"
+repository  = "https://github.com/9-FS/kfsfstr"
+version     = "2.0.0"
 
 [tool.poetry.dependencies]
 colorama = "^0.4.0"

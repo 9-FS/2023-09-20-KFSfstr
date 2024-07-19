@@ -1,6 +1,6 @@
 name: On Tag Release on Github
 env:
-    PROJECT_NAME: KFSfstr
+    PROJECT_NAME: kfsfstr
     PYTHON_VERSION: ^3.12.0
     RUN_TESTS: false
 on:
